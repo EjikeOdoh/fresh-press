@@ -30,8 +30,8 @@ Work items:
    services from the spec.
 8. Create `.env.example`, `.gitignore`, `README.md` (initial) and shared config modules
    (`src/lib/config.ts`, `src/lib/money.ts`, `src/lib/order-status.ts`).
-9. Add a driver-agnostic database verification harness (`scripts/verify-db.ts`, PGlite)
-   so migrations + seed can be proven without live credentials.
+9. Add a database verification harness (`scripts/verify-db.ts`) that checks the
+   connection, the applied migration and the seed against the Neon database.
 
 Acceptance:
 
@@ -214,9 +214,10 @@ Work items:
 
 1. Unit tests (`node:test` + `tsx`) for money formatting, order-number generation, Zod
    validation rules (dates, slots, phone) and the checkout total computation.
-2. Database integration test with PGlite: apply the generated migration, seed the
-   catalogue, run the whole checkout in a transaction, assert totals/snapshots/cart
-   clearing, assert duplicate-submission behaviour and ownership isolation.
+2. Database integration test against a dedicated Neon test database: apply the
+   generated migration, seed the catalogue, run the whole checkout in a transaction,
+   assert totals/snapshots/cart clearing, assert duplicate-submission behaviour and
+   ownership isolation.
 3. `npm run typecheck`, `npm run lint`, `npm run test`, `npm run build`.
 4. Document Neon production setup, Google OAuth production redirect URIs, Mailgun
    production configuration and Vercel deployment.

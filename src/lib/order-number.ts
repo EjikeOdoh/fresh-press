@@ -50,7 +50,7 @@ type MaybePgError = {
 
 /**
  * Detect a PostgreSQL unique-constraint violation (SQLSTATE `23505`), including errors
- * wrapped by Drizzle or by PGlite (`error.cause`).
+ * wrapped by Drizzle (`error.cause`).
  */
 export function isUniqueViolation(error: unknown): boolean {
   const visited = new Set<unknown>();

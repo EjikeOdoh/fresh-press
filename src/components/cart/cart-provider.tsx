@@ -100,10 +100,6 @@ function clampQuantity(quantity: number): number {
   );
 }
 
-function emptyTotals(): CartTotalsView {
-  return { subtotal: 0, deliveryFee: DELIVERY_FEE_NAIRA, total: DELIVERY_FEE_NAIRA };
-}
-
 function toTotals(lines: CartLine[]): CartTotalsView {
   return calculateOrderTotals(lines, DELIVERY_FEE_NAIRA);
 }
